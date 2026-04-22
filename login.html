@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LabHub - Iniciar sesión</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-zinc-950 text-white min-h-screen flex items-center justify-center">
+  <div class="max-w-md w-full bg-zinc-900 p-10 rounded-3xl border border-zinc-700">
+    <div class="flex justify-center mb-8">
+      <h1 class="text-5xl font-bold flex items-center gap-3">
+        <span class="text-emerald-500">◼</span> LabHub
+      </h1>
+    </div>
+
+    <h2 class="text-3xl font-semibold text-center mb-2">Bienvenido</h2>
+    <p class="text-zinc-400 text-center mb-10">Inicia sesión para continuar</p>
+
+    <form id="loginForm" class="space-y-6">
+      <div>
+        <label class="block text-sm mb-2">Usuario o email</label>
+        <input id="username" type="text" value="pablo.estudiante" 
+               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-emerald-500">
+      </div>
+      <div>
+        <label class="block text-sm mb-2">Contraseña</label>
+        <input id="password" type="password" value="123456" 
+               class="w-full bg-zinc-800 border border-zinc-700 rounded-2xl px-5 py-4 focus:outline-none focus:border-emerald-500">
+      </div>
+
+      <button type="submit"
+              class="w-full bg-emerald-600 hover:bg-emerald-500 py-4 rounded-2xl text-lg font-semibold transition">
+        Iniciar sesión
+      </button>
+    </form>
+
+    <p class="text-center text-zinc-400 mt-8 text-sm">
+      ¿No tienes cuenta? <span class="text-emerald-400 cursor-pointer">Regístrate gratis</span>
+    </p>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', function(e) {
+      e.preventDefault();   // ← Evita que recargue la página
+
+      const username = document.getElementById('username').value.trim() || "estudiante";
+
+      // Guardamos el usuario para que aparezca en el navbar
+      localStorage.setItem('currentUser', username);
+
+      // Redirección a la página principal
+      window.location.href = 'index.html';
+    });
+  </script>
+</body>
+</html>
